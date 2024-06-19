@@ -1,0 +1,5 @@
+<div *ngIf="user">
+  <h1>{{user.name}}</h1>
+  <p><span>User Id:</span> {{user.id}}</p>
+  <p><img [src]="'../../assets/users/' + user.avatar" [alt]="user.name" class="image"></p>
+</div>
