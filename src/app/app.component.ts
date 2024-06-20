@@ -4,6 +4,7 @@ import { UserComponent } from "./user/user.component";
 import { DUMMY_USERS } from './dummy-users';
 import { CommonModule } from '@angular/common';
 import { TasksComponent } from "./tasks/tasks.component";
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,10 @@ export class AppComponent {
   user: any;
   selectedUserId!: string;
 
+  constructor(private taskService: TaskService) {}
+
   onSelectUser(id: string) {
+    this.taskService.taskInitialized.next(false);
     this.selectedUserId = id;
     this.user = this.users.find(user => user.id === id)!;
   }

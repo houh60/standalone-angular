@@ -13,7 +13,11 @@ export class TaskToAddComponent {
   @Output() taskData = new EventEmitter();
 
   onSubmit(form: NgForm) {
-    this.taskData.emit(form.value);
+    if (form.valid) {
+      this.taskData.emit(form.value);
+    } else {
+      alert('Please fill up all the fields.')
+    }
   }
 
 }

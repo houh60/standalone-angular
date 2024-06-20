@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TaskComponent } from "./task/task.component";
 import { User } from '../user/user.model';
 import { Task } from './task/task.model';
 import { TaskToAddComponent } from "./task-to-add/task-to-add.component";
+import { TaskService } from '../task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,7 +13,7 @@ import { TaskToAddComponent } from "./task-to-add/task-to-add.component";
   styleUrl: './tasks.component.css',
   imports: [CommonModule, TaskComponent, TaskToAddComponent]
 })
-export class TasksComponent {
+export class TasksComponent implements OnInit {
   @Input({ required: true }) user!: User;
   addTask = false;
   tasks: Task[] = [
@@ -38,6 +39,14 @@ export class TasksComponent {
       dueDate: '2024-06-15',
     }
   ];
+
+  constructor(private taskService: TaskService) {}
+
+  ngOnInit(): void {
+    this.taskService.taskInitialized.subscribe(
+      addTaskInitialize => this.addTask = addTaskInitialize as boolean
+    );
+  }
 
   get selectedUserTasks() {
     return this.tasks.filter((task) => task.userId === this.user.id);
