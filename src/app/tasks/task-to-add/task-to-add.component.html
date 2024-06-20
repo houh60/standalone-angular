@@ -1,16 +1,15 @@
 <form #taskToAddForm="ngForm" (ngSubmit)="onSubmit(taskToAddForm)">
-  <div class="form-group row">
-    <label class="col-3" for="title">Title</label>
-    <input class="col-9" type="text" id="title" class="form-control" ngModel name="title" required>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" id="title" class="form-control" ngModel name="title" required>
   </div>
-  <div class="form-group row">
-    <label class="col-3" for="summary">Summary</label>
-    <input class="col-9" type="text" id="summary" class="form-control" ngModel name="summary" required>
+  <div class="form-group">
+    <label for="summary">Summary</label>
+    <input type="text" id="summary" class="form-control" ngModel name="summary" required>
   </div>
-  <div class="form-group row">
-    <label class="col-3" for="dueDate">Due Date</label>
-    <input class="col-9" type="text" id="dueDate" class="form-control" ngModel name="dueDate" required
-      placeholder="yyyy-mm-dd">
+  <div class="form-group">
+    <label for="dueDate">Due Date</label>
+    <input type="text" id="dueDate" class="form-control" ngModel name="dueDate" required placeholder="yyyy-mm-dd">
   </div>
   <button type="submit">Add</button>
 </form>

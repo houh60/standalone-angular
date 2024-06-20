@@ -47,11 +47,7 @@ export class TasksComponent {
     this.tasks = this.tasks.filter(task => task.id !== id);
   }
 
-  onAddTask() {
-    this.addTask = true;
-  }
-
-  add(event: any) {
+  onAddTask(event: any) {
     const id = new Date().getTime().toString();
     const task: Task = {
       id: id,

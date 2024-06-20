@@ -3,10 +3,10 @@
     <h2>{{user.name}}'s Tasks</h2>
     <!-- <p><img [src]="'../../assets/users/' + user.avatar" [alt]="user.name" class="image"></p> -->
     <menu>
-      <button (click)="onAddTask()">Add Task</button>
+      <button (click)="addTask = true">Add Task</button>
     </menu>
   </header>
-  <app-task-to-add *ngIf="addTask" (taskData)="add($event)"></app-task-to-add>
+  <app-task-to-add *ngIf="addTask" (taskData)="onAddTask($event)"></app-task-to-add>
   <ul>
     @for(task of selectedUserTasks; track task.id) {
     <li>
