@@ -1,9 +1,6 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { TaskComponent } from "./task/task.component";
 import { User } from '../user/user.model';
 import { Task } from './task/task.model';
-import { TaskToAddComponent } from "./task-to-add/task-to-add.component";
 import { TaskService } from './task.service';
 
 @Component({
