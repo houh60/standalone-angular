@@ -19,5 +19,4 @@ export class TaskToAddComponent {
       alert('Please fill up all the fields.')
     }
   }
-
 }

@@ -1,14 +1,17 @@
 label {
-  display: inline-block;
+  display: block;
   width: 20%;
 }
 
+textarea,
 input {
   display: inline-block;
-  width: 80%;
+  width: 100%;
+  border-radius: 5px;
 }
 
 button {
+  margin-top: 10px;
   font: inherit;
   cursor: pointer;
   background-color: #9965dd;
