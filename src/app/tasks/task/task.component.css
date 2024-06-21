@@ -8,6 +8,10 @@ h2 {
   margin: 0;
 }
 
+span {
+  font-weight: bold;
+}
+
 time {
   color: #3c2c50;
 }

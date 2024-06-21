@@ -4,7 +4,7 @@ import { TaskComponent } from "./task/task.component";
 import { User } from '../user/user.model';
 import { Task } from './task/task.model';
 import { TaskToAddComponent } from "./task-to-add/task-to-add.component";
-import { TaskService } from '../task.service';
+import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-tasks',
@@ -16,33 +16,12 @@ import { TaskService } from '../task.service';
 export class TasksComponent implements OnInit {
   @Input({ required: true }) user!: User;
   addTask = false;
-  tasks: Task[] = [
-    {
-      id: 't1',
-      userId: 'u1',
-      title: 'Master Angular',
-      summary: 'Learn all the basic and advanced features of Angular & how to apply them.',
-      dueDate: '2025-12-31',
-    },
-    {
-      id: 't2',
-      userId: 'u2',
-      title: 'Build first prototype',
-      summary: 'Build a first prototype of the online shop website',
-      dueDate: '2024-05-31',
-    },
-    {
-      id: 't3',
-      userId: 'u6',
-      title: 'Prepare issue template',
-      summary: 'Prepare and describe an issue template which will help with project management',
-      dueDate: '2024-06-15',
-    }
-  ];
+  tasks!: Task[];
 
   constructor(private taskService: TaskService) {}
 
   ngOnInit(): void {
+    this.tasks = this.taskService.getTasks();
     this.taskService.taskInitialized.subscribe(
       addTaskInitialize => this.addTask = addTaskInitialize as boolean
     );
