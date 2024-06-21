@@ -8,10 +8,8 @@ import { TaskService } from './task.service';
 
 @Component({
   selector: 'app-tasks',
-  standalone: true,
   templateUrl: './tasks.component.html',
   styleUrl: './tasks.component.css',
-  imports: [CommonModule, TaskComponent, TaskToAddComponent]
 })
 export class TasksComponent implements OnInit {
   @Input({ required: true }) user!: User;

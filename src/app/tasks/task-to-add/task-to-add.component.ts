@@ -3,8 +3,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-task-to-add',
-  standalone: true,
-  imports: [FormsModule],
   templateUrl: './task-to-add.component.html',
   styleUrl: './task-to-add.component.css'
 })
